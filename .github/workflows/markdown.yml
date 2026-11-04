@@ -1,0 +1,30 @@
+name: Markdown
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  markdown:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Markdown whitespace
+        shell: bash
+        run: |
+          status=0
+          while IFS= read -r -d '' file; do
+            if [[ "$(tail -c 1 -- "$file" | wc -l)" -eq 0 ]]; then
+              printf '%s: missing final newline\n' "$file"
+              status=1
+            fi
+            if grep -n '[[:space:]]$' -- "$file"; then
+              printf '%s: trailing whitespace\n' "$file"
+              status=1
+            fi
+          done < <(git ls-files -z -- '*.md')
+          exit "$status"
