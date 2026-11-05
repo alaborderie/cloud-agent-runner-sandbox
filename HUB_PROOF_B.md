@@ -1,0 +1,1 @@
+hub child B
