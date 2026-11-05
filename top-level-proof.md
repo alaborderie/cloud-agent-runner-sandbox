@@ -17,3 +17,5 @@ This continuation does not invoke T3 or T3 Connect.
 
 The later follow-up message started a new run on the same branch,
 `cloud-agent/e83a3d08b1b4`, to update the existing PR #20.
+
+A message queued during an active T3 turn also runs on this same branch.
