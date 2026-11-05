@@ -12,3 +12,8 @@ with that answer before creating this file.
 The resulting commit and pull request against `main` provide the repository
 artifact for this proof. The pull request remains open for review, as requested.
 This continuation does not invoke T3 or T3 Connect.
+
+## Follow-up proof
+
+The later follow-up message started a new run on the same branch,
+`cloud-agent/e83a3d08b1b4`, to update the existing PR #20.
